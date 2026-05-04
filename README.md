@@ -25,7 +25,7 @@ ShadowBench/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/[ANONYMIZED]/ShadowBench.git
+   git clone https://github.com/latent-research-lab/ShadowBench.git
    cd ShadowBench
    ```
 2. Install dependencies:
