@@ -1,6 +1,6 @@
 # ShadowBench: Framework for Latent Entity Association and Unlearning Evaluation
 
-ShadowBench is a diagnostic framework designed to evaluate the "Shadow Knowledge" of Large Language Models (LLMs). This repository contains the complete pipeline for dataset dataset_construction, baseline knowledge probing, and the evaluation of Machine Unlearning algorithms using latent associative metrics.
+ShadowBench is a diagnostic framework designed to evaluate the "Shadow Knowledge" of Large Language Models (LLMs). This repository contains the complete pipeline for dataset construction, baseline knowledge probing, and the evaluation of Machine Unlearning algorithms using latent associative metrics.
 
 ## 📌 Overview
 Traditional benchmarks rely on **Lexical Anchors** (explicit names) to retrieve facts. ShadowBench evaluates **Latent Entity Association**—the ability of a model to bridge attributes through a hidden entity. Our pipeline implements iterative "Adversarial Hardening" to prevent models from using non-semantic shortcuts (heuristics) to solve association tasks.
@@ -11,12 +11,12 @@ Traditional benchmarks rely on **Lexical Anchors** (explicit names) to retrieve 
 
 ```text
 ShadowBench/
-├── dataset_construction/           # Dataset generation pipeline (v1 to v3)
-├── baseline/               # Factual recall and associative benchmarks
-├── unlearning/             # Corpora generation for unlearning training
-├── unlearn_evaluation/      # Metrics and probes for unlearned models
-├── requirements.txt        # Python dependencies
-└── .env.example            # Template for API keys (OpenAI, Gemini)
+├── dataset_construction/            # Dataset generation pipeline (v1 to v3)
+├── baseline_evaluation/             # Factual recall and associative benchmarks
+├── unlearning/                      # Corpora generation for unlearning training
+├── unlearn_evaluation/              # Metrics and probes for unlearned models
+├── requirements.txt                 # Python dependencies
+└── .env.example                     # Template for API keys (OpenAI, Gemini, Anthropic)
 ```
 
 ---
@@ -59,7 +59,7 @@ The construction of ShadowBench follows a three-stage "Semantic Hardening" proce
 We evaluate the "Shadow Gap" between direct recall and latent association across various model scales.
 
 *   **Local Models:** `baseline_evaluation_multigpu.py` supports distributed inference for Llama-3 and Qwen models. It calculates accuracy for both Standard and Chain-of-Thought (CoT) reasoning modes.
-*   **Frontier Models:** `gpt_evaluation.py` interfaces with proprietary APIs to establish the performance ceiling of state-of-the-art models.
+*   **Frontier Models:** `gpt_evaluation.py` and `claude_evaluation.py` interface with proprietary APIs to establish the performance ceiling of state-of-the-art models.
 
 ---
 
